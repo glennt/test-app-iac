@@ -13,3 +13,8 @@ variable "tf_state_lock_dynamodb_table" {
   type        = string
   description = "Dynamo DB tf state lock table"
 }
+
+variable "s3_other_bucket" {
+	type 				= string
+	description = "Other S3 bucket"
+}
