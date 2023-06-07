@@ -46,6 +46,16 @@ name: 'Terraform'
 
 on:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        description: Select the environment
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - dev
 
 permissions:
   contents: read
