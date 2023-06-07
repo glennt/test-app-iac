@@ -42,7 +42,7 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: 'Terraform'
+name: 'test-app-iac'
 
 on:
   pull_request:
@@ -73,7 +73,14 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
-
+      
+    - name: Configure AWS Credentials Action For GitHub Actions
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1   
+      
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -90,9 +97,9 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false -backend-config=./backend-config/${{ inputs.environment }}.conf -var-file=./variables/${{ inputs.environment }}.tfvars
+      run: terraform plan -input=false -var-file=./variables/${{ inputs.environment }}.tfvars
 
       # On push to "develop", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      run: terraform apply -auto-approve -input=false -input=false -backend-config=./backend-config/${{ inputs.environment }}.conf -var-file=./variables/${{ inputs.environment }}.tfvars
+      run: terraform apply -auto-approve -input=false -input=false -var-file=./variables/${{ inputs.environment }}.tfvars
