@@ -18,5 +18,6 @@ provider "aws" {
 }
 
 module "storage" {
-  source = "./storage"
+  source          = "./storage"
+  s3_other_bucket = var.s3_other_bucket
 }
