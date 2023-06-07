@@ -13,11 +13,12 @@ terraform {
   }
 }
 
+
 provider "aws" {
   region = var.aws_region
 }
 
 module "storage" {
-  source          = "./storage"
+  source          = "./modules/storage"
   s3_other_bucket = var.s3_other_bucket
 }
