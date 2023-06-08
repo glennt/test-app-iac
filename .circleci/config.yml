@@ -15,7 +15,6 @@ jobs:
       - checkout
       - terraform/init:
           path: .
-          backend_config_path: ./backend-config/<< pipeline.parameters.env >>.conf
       - terraform/fmt:
           path: .
       - terraform/plan:
