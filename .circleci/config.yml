@@ -13,6 +13,7 @@ jobs:
     executor: terraform/default
     steps:
       - checkout
+          path: ~/repo
       - terraform/init:
           path: .
       - terraform/fmt:
@@ -21,7 +22,7 @@ jobs:
           path: .
       - terraform/apply:
           path: .
-    working_directory: ~/project/infrastructure
+    working_directory: ~/repo/infrastructure
 workflows:
   single-job-lifecycle:
     jobs:
