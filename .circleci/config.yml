@@ -12,7 +12,7 @@ jobs:
   single-job-lifecycle:
     executor: terraform/default
     steps:
-      - checkout
+      - checkout:
           path: ~/repo
       - terraform/init:
           path: .
