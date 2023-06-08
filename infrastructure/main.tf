@@ -22,3 +22,8 @@ module "storage" {
   source          = "./modules/storage"
   s3_other_bucket = var.s3_other_bucket
 }
+
+module "api" {
+  source           = "./modules/api"
+  api_gateway_name = var.api_gateway_name
+}

@@ -7,3 +7,6 @@ tf_state_lock_dynamodb_table = "dev-tf-state-lock"
 
 #storage
 s3_other_bucket = "dev.gt.test.app.other.bucket"
+
+#api
+api_gateway_name = "dev-test-app-api"

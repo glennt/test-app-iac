@@ -9,3 +9,8 @@ variable "s3_other_bucket" {
   type        = string
   description = "Other S3 bucket"
 }
+
+#api
+variable "api_gateway_name" {
+  type = string
+}
