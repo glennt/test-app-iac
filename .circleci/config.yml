@@ -3,32 +3,27 @@ version: '2.1'
 parameters:
   action:
     type: enum
-    enum: [build, report]
-    default: build
-
+    enum: [dev]
+    default: dev
+    
 orbs:
-  terraform: circleci/terraform@3.1
-workflows:
-  deploy_infrastructure:
-    jobs:
+  terraform: circleci/terraform@3.2.1
+jobs:
+  single-job-lifecycle:
+    executor: terraform/default
+    steps:
+      - checkout
+      - terraform/init:
+          path: .
+          backend_config_path: ./backend-config/<< pipeline.parameters.environment >>.conf
       - terraform/fmt:
-          checkout: true
-          context: terraform
-      - terraform/validate:
-          checkout: true
-          context: terraform
-          requires:
-            - terraform/fmt
+          path: .
       - terraform/plan:
-          checkout: true
-          context: terraform
-          requires:
-            - terraform/validate
+          path: .
       - terraform/apply:
-          context: terraform
-          filters:
-            branches:
-              only: main
-          requires:
-            - terraform/plan
-          
+          path: .
+    working_directory: ./infrastructure
+workflows:
+  single-job-lifecycle:
+    jobs:
+      - single-job-lifecycle
