@@ -14,3 +14,8 @@ variable "s3_other_bucket" {
 variable "api_gateway_name" {
   type = string
 }
+
+#security
+variable "cognito_user_pool_name" {
+  type = string
+}

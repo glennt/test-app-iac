@@ -27,3 +27,8 @@ module "api" {
   source           = "./modules/api"
   api_gateway_name = var.api_gateway_name
 }
+
+module "security" {
+  source                 = "./modules/security"
+  cognito_user_pool_name = var.cognito_user_pool_name
+}

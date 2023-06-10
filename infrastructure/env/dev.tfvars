@@ -10,3 +10,6 @@ s3_other_bucket = "dev.gt.test.app.other.bucket"
 
 #api
 api_gateway_name = "dev-test-app-api"
+
+#security
+cognito_user_pool_name = "dev-test-app-user-pool"
