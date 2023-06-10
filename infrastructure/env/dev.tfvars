@@ -13,3 +13,4 @@ api_gateway_name = "dev-test-app-api"
 
 #security
 cognito_user_pool_name = "dev-test-app-user-pool"
+cognito_client_name    = "dev-test-app-client"

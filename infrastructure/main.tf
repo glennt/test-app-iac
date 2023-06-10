@@ -31,4 +31,5 @@ module "api" {
 module "security" {
   source                 = "./modules/security"
   cognito_user_pool_name = var.cognito_user_pool_name
+  cognito_client_name    = var.cognito_client_name
 }
