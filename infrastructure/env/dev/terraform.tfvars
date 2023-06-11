@@ -12,5 +12,7 @@ s3_code_deployment_bucket = "dev.gt.test.app.code.deployment"
 api_gateway_name = "dev-test-app-api"
 
 #security
-cognito_user_pool_name = "dev-test-app-user-pool"
-cognito_client_name    = "dev-test-app-client"
+cognito_user_pool_name            = "dev-test-app-user-pool"
+cognito_client_name               = "dev-test-app-client"
+lambda_execution_role_name        = "dev-lambda-execution-role"
+lambda_execution_role_policy_name = "dev-lambda-execution-role-policy"
