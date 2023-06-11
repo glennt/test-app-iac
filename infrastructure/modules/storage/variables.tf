@@ -1,4 +1,4 @@
-variable "s3_other_bucket" {
+variable "s3_code_deployment_bucket" {
   type        = string
-  description = "Other S3 bucket"
+  description = "S3 code deployment bucket"
 }
