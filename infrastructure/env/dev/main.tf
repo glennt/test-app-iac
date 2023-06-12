@@ -24,9 +24,10 @@ module "storage" {
 }
 
 module "api" {
-  source                   = "../../modules/api"
-  api_gateway_name         = var.api_gateway_name
-  lambda_execution_role_id = module.security.lambda_execution_role_id
+  source                    = "../../modules/api"
+  api_gateway_name          = var.api_gateway_name
+  lambda_execution_role_arn = module.security.lambda_execution_role_arn
+  lambda_node_api_name      = var.lambda_node_api_name
 }
 
 module "security" {

@@ -11,7 +11,7 @@ resource "aws_lambda_function" "node_api" {
   timeout       = local.function_timeout_in_seconds
 
   filename = "${path.module}/assets/lambda/nodejs/placeholder/lambda.zip"
-  role     = var.lambda_execution_role_id
+  role     = var.lambda_execution_role_arn
 
   lifecycle {
     ignore_changes = [
