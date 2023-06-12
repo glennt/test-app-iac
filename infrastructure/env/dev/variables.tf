@@ -4,6 +4,11 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "env" {
+  type        = string
+  description = "Environment"
+}
+
 #storage
 variable "s3_code_deployment_bucket" {
   type        = string
@@ -12,6 +17,10 @@ variable "s3_code_deployment_bucket" {
 
 #api
 variable "api_gateway_name" {
+  type = string
+}
+
+variable "lambda_node_api_name" {
   type = string
 }
 
