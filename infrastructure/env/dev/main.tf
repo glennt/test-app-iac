@@ -24,11 +24,14 @@ module "storage" {
 }
 
 module "api" {
-  source                    = "../../modules/api"
-  api_gateway_name          = var.api_gateway_name
-  lambda_execution_role_arn = module.security.lambda_execution_role_arn
-  lambda_node_api_name      = var.lambda_node_api_name
-  depends_on                = [module.security]
+  source                      = "../../modules/api"
+  api_gateway_name            = var.api_gateway_name
+  api_gateway_template        = file("./assets/api-gateway/test-api/openapi.yml")
+  api_gateway_authorizer_name = var.api_gateway_authorizer_name
+  cognito_user_pool_arn       = module.security.cognito_user_pool_arn
+  lambda_execution_role_arn   = module.security.lambda_execution_role_arn
+  lambda_node_api_name        = var.lambda_node_api_name
+  aws_region                  = var.aws_region
 }
 
 module "security" {

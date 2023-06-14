@@ -19,3 +19,9 @@ resource "aws_lambda_function" "node_api" {
     ]
   }
 }
+
+resource "aws_lambda_permission" "node_api" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.node_api.arn
+  principal     = "apigateway.amazonaws.com"
+}
