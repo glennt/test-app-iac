@@ -1,7 +1,7 @@
 locals {
   function_handler            = "index.handler"
   function_runtime            = "nodejs18.x"
-  function_timeout_in_seconds = 30
+  function_timeout_in_seconds = 60
 }
 
 resource "aws_lambda_function" "node_api" {
