@@ -1,5 +1,5 @@
 locals {
-  function_handler            = "main.handler"
+  function_handler            = "index.handler"
   function_runtime            = "nodejs18.x"
   function_timeout_in_seconds = 30
 }
