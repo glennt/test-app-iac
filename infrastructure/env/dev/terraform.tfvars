@@ -14,7 +14,7 @@ s3_code_deployment_bucket = "dev.gt.test.app.code.deployment"
 #api
 api_gateway_name            = "dev-test-app-api"
 api_gateway_authorizer_name = "dev-test-api-authorizer"
-lambda_node_api_name        = "dev-node-api"
+lambda_node_api_name        = "dev-test-app-node-api"
 
 #security
 cognito_user_pool_name            = "dev-test-app-user-pool"
