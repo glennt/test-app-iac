@@ -38,6 +38,7 @@ module "security" {
   source                            = "../../modules/security"
   cognito_user_pool_name            = var.cognito_user_pool_name
   cognito_client_name               = var.cognito_client_name
+  cognito_client_name_no_secret     = var.cognito_client_name_no_secret
   lambda_execution_role_name        = var.lambda_execution_role_name
   lambda_execution_role_policy_name = var.lambda_execution_role_policy_name
 }
