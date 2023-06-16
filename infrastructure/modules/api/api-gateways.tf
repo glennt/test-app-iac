@@ -14,6 +14,16 @@ resource "aws_api_gateway_rest_api" "test_app" {
   body = data.template_file.api_gateway_template.rendered
 }
 
+resource "aws_api_gateway_deployment" "default" {
+  depends_on  = [aws_api_gateway_integration.test]
+  rest_api_id = aws_api_gateway_rest_api.test_app.id
+  stage_name  = "default"
+
+  variables {
+    deploy_at = timestamp()
+  }
+}
+
 resource "aws_api_gateway_authorizer" "test_app_authorizer" {
   name                             = var.api_gateway_authorizer_name
   rest_api_id                      = aws_api_gateway_rest_api.test_app.id
