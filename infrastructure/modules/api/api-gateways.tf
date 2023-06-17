@@ -18,6 +18,14 @@ resource "aws_api_gateway_deployment" "default" {
   rest_api_id = aws_api_gateway_rest_api.test_app.id
   stage_name  = "default"
   description = "Deployed at ${timestamp()}"
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_api_gateway_authorizer" "test_app_authorizer" {
