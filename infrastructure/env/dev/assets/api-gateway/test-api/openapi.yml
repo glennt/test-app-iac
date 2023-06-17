@@ -3,7 +3,7 @@ info:
   title: "${api_gateway_name}"
   version: "v1"
 paths:
-  /nodejsApi/{proxy+}:
+  /nodejs-api/{proxy+}:
     options:
       parameters:
       - name: "proxy"
